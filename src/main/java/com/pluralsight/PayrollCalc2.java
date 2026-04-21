@@ -24,10 +24,10 @@ public class PayrollCalc2 {
         try {
 
 
-            FileReader theReader = new FileReader(inputFileName);
+            FileReader theReader = new FileReader("src/main/resources/" + inputFileName);
             BufferedReader theFile = new BufferedReader(theReader);
 
-            FileWriter fileWriter = new FileWriter(outputFileName);
+            FileWriter fileWriter = new FileWriter("src/main/resources/" +outputFileName);
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
              theFile.readLine();
 
@@ -43,13 +43,13 @@ public class PayrollCalc2 {
 
                 Employee currentemployee = new Employee(employeeId, name, hoursWorked, payRate);
 
-              String newFile =  String.format("%d|%s|%.2f", currentemployee.getEmployeeId(), currentemployee.getName(), currentemployee.getGrossPay());
+              String newFile =  String.format("%d|%s|%.2f\n", currentemployee.getEmployeeId(), currentemployee.getName(), currentemployee.getGrossPay());
 
-                    System.out.printf("id %2d|%2s|Grosspay %2.2f \n", currentemployee.getEmployeeId(),currentemployee.getName(),currentemployee.getGrossPay());
+              bufWriter.write(newFile);
+
                 }
 
-
-
+            bufWriter.close();
 
             theFile.close();
 
