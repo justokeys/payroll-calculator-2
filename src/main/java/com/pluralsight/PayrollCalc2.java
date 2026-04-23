@@ -31,6 +31,8 @@ public class PayrollCalc2 {
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
              theFile.readLine();
 
+              bufWriter.write("id|name|gross pay\n");
+
 
             while ((line = theFile.readLine()) != null) {
 
